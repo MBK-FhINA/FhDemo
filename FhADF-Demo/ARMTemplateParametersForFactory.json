@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "FhADF-Demo"
+		},
+		"ADLG2_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks_LinkedService_accessToken": {
+			"value": ""
+		},
+		"ADLG2_properties_typeProperties_url": {
+			"value": "https://fhadldemo.dfs.core.windows.net/"
+		},
+		"ADLGen2HttpServer_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/MBK-FhINA/FhDemo/main/Athletes.csv"
+		},
+		"RestService_properties_typeProperties_url": {
+			"value": "https://api.github.com/users/MBK-FhINA/FhDemo/Result"
+		},
+		"Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/5d0370d7-22be-401e-b10a-47e426f7bee1/resourceGroups/ADT-EXP/providers/Microsoft.Storage/storageAccounts/fhadldemo"
+		}
+	}
+}

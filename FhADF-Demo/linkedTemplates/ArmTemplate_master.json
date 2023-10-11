@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "FhADF-Demo"
+		},
+		"ADLG2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLG2'"
+		},
+		"AzureDatabricks_LinkedService_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_LinkedService'"
+		},
+		"ADLG2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://fhadldemo.dfs.core.windows.net/"
+		},
+		"ADLGen2HttpServer_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/MBK-FhINA/FhDemo/main/Athletes.csv"
+		},
+		"RestService_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.github.com/users/MBK-FhINA/FhDemo/Result"
+		},
+		"Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/5d0370d7-22be-401e-b10a-47e426f7bee1/resourceGroups/ADT-EXP/providers/Microsoft.Storage/storageAccounts/fhadldemo"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "FhADF-Demo_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLG2_accountKey": {
+						"value": "[parameters('ADLG2_accountKey')]"
+					},
+					"AzureDatabricks_LinkedService_accessToken": {
+						"value": "[parameters('AzureDatabricks_LinkedService_accessToken')]"
+					},
+					"ADLG2_properties_typeProperties_url": {
+						"value": "[parameters('ADLG2_properties_typeProperties_url')]"
+					},
+					"ADLGen2HttpServer_properties_typeProperties_url": {
+						"value": "[parameters('ADLGen2HttpServer_properties_typeProperties_url')]"
+					},
+					"RestService_properties_typeProperties_url": {
+						"value": "[parameters('RestService_properties_typeProperties_url')]"
+					},
+					"Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
