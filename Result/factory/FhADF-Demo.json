@@ -1,0 +1,9 @@
+{
+	"name": "FhADF-Demo",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "07a565c8-2b42-4c7c-9b9a-90b2d83a4f90",
+		"tenantId": "f930300c-c97d-4019-be03-add650a171c4"
+	}
+}
