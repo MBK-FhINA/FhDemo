@@ -1,5 +1,5 @@
 {
-	"name": "RestResource1",
+	"name": "RestData",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "RestService",
