@@ -5,20 +5,12 @@
 			"referenceName": "ADLG2",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"Filename": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().Filename",
-					"type": "Expression"
-				},
+				"fileName": "part.csv",
 				"folderPath": "Raw-Data",
 				"fileSystem": "inputgen2"
 			},
